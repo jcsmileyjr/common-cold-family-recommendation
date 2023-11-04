@@ -15,7 +15,7 @@ public class Visit {
     }
 
     public void list_Symptoms() {
-        int count = 1;
+        int count = 0;
         for (String symptom : Symptoms) {
             System.out.println(count + ". " + symptom);
             count++;
@@ -26,11 +26,25 @@ public class Visit {
         System.out.println("Type a number and enter to add symptoms to your issues. You can add up to 5. Type '0' when finished.");
         Scanner input = new Scanner(System.in);
         int condition;
+        int number_of_conditions = 0;
+
         while (input.hasNextInt()) {
             condition = input.nextInt();
-            System.out.println("You choose" + condition);
-            if(condition == 0) {
+
+            if(condition == -1) {
                 break;
+            } else {
+                Given_Symptoms[number_of_conditions] = Symptoms[condition];
+                number_of_conditions++;
+            }
+
+            System.out.println("You choose " + condition);
+        }
+        
+        System.out.println("display syptoms given");
+        for (String symptoms : Given_Symptoms) {
+            if(symptoms != null) {
+                System.out.println(symptoms);
             }
         }
         input.close();
