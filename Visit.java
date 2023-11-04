@@ -1,22 +1,28 @@
 import java.util.Scanner;
 
 public class Visit {
-    public String[] Symptoms = {"coughing", "fever","fatigue", "body aches", "runny nose", "nausea", "congestion"}; //, "vomiting", "sneezing", "congestion", "runny nose", "fatigue", "body aches", "sore throat", "nausea", "diarrhea", "stomachache"
-    public Diagnosis[] Diagnoses = new Diagnosis[2];
-    public String[] Given_Symptoms = new String[5];
+    public String[] symptoms = {"coughing", "fever","fatigue", "body aches", "runny nose", "nausea", "congestion"}; //, "vomiting", "sneezing", "congestion", "runny nose", "fatigue", "body aches", "sore throat", "nausea", "diarrhea", "stomachache"
+    public Diagnosis[] diagnoses = new Diagnosis[2];
+    public String[] givenSymptoms = new String[5];
 
     public Visit(){
-        Diagnosis Flu = new Diagnosis("Flu", "Doctor visit with shot, plenty of rest & water, over the counter congestion medicene.");
-        Diagnosis Common_Cold = new Diagnosis("common cold", "Over the counter Motrin and Tyonal, rest, plenty of water");
+        String[] fluSymptoms = {"coughing", "fever","fatigue", "body aches", "nausea", "runny nose", "congestion"};
+        Diagnosis flu = new Diagnosis("Flu", "Doctor visit with shot, plenty of rest & water, over the counter congestion medicene.", fluSymptoms);
 
-        Diagnoses[0] = Flu; // "coughing", "fever","fatigue", "body aches", "nausea", "runny nose", "congestion"
-        Diagnoses[1] = Common_Cold; // "coughing", "running nose", "congestion", 
+        String[] commonColdSymptoms = {"coughing", "running nose", "congestion"};
+        Diagnosis commonCold = new Diagnosis("common cold", "Over the counter Motrin and Tyonal, rest, plenty of water", commonColdSymptoms);
 
+        diagnoses[0] = flu; // "coughing", "fever","fatigue", "body aches", "nausea", "runny nose", "congestion"
+        diagnoses[1] = commonCold; // "coughing", "running nose", "congestion", 
+    }
+    
+    public void testing() {
+        diagnoses[0].test();
     }
 
     public void list_Symptoms() {
         int count = 0;
-        for (String symptom : Symptoms) {
+        for (String symptom : symptoms) {
             System.out.println(count + ". " + symptom);
             count++;
         }
@@ -34,15 +40,15 @@ public class Visit {
             if(condition == -1) {
                 break;
             } else {
-                Given_Symptoms[number_of_conditions] = Symptoms[condition];
+                givenSymptoms[number_of_conditions] = symptoms[condition];
                 number_of_conditions++;
             }
 
             System.out.println("You choose " + condition);
         }
-        
+
         System.out.println("display syptoms given");
-        for (String symptoms : Given_Symptoms) {
+        for (String symptoms : givenSymptoms) {
             if(symptoms != null) {
                 System.out.println(symptoms);
             }
