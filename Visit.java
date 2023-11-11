@@ -20,6 +20,13 @@ public class Visit {
         diagnoses[0].test();
     }
 
+    public void Determine_Illness() {
+        for (Diagnosis illness : diagnoses) {
+            illness.Determine_Probability_Of_Illness(givenSymptoms);
+        }
+        //diagnoses[0].Determine_Probability_Of_Illness(givenSymptoms);
+    }
+
     public void list_Symptoms() {
         int count = 0;
         for (String symptom : symptoms) {

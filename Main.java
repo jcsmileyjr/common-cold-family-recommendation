@@ -11,6 +11,7 @@ public class Main {
         Visit session = new Visit();
         session.list_Symptoms();
         session.get_Symptoms();
+        session.Determine_Illness();
 
         //session.testing();
     }
