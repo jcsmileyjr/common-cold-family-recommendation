@@ -11,7 +11,7 @@ class Diagnosis {
     }
 
     public void printDiagnosis(){
-        System.out.println("I am of type " + type + ". With this treatement" + treatment);
+        System.out.println("Your illness is " + type + ". Recommend treatment of: " + treatment);
     }
 
     public void test() {
@@ -42,7 +42,8 @@ class Diagnosis {
 
         probability = (matches / symptoms.length) * 100;
 
-        System.out.println("number of illness systems are " + symptoms.length + " divide by number of matches " + matches + " is the probability is " + probability);
+        // Below is for testing
+        //System.out.println("number of illness systems are " + symptoms.length + " divide by number of matches " + matches + " is the probability is " + probability);
 
         return probability;
     }

@@ -21,10 +21,23 @@ public class Visit {
     }
 
     public void Determine_Illness() {
+        int index = 0;
+        double highestProbality = 0;
+        double currentDiagnosisProbality = 0;
+        int mostLikelyIllness = 0;
+    
         for (Diagnosis illness : diagnoses) {
-            illness.Determine_Probability_Of_Illness(givenSymptoms);
-        }
-        //diagnoses[0].Determine_Probability_Of_Illness(givenSymptoms);
+            currentDiagnosisProbality =  illness.Determine_Probability_Of_Illness(givenSymptoms);
+            if(currentDiagnosisProbality > highestProbality) {
+                highestProbality = currentDiagnosisProbality;
+                mostLikelyIllness = index;
+            }
+            index ++;
+        } 
+
+        diagnoses[mostLikelyIllness].printDiagnosis();
+        //System.out.println("Your illness is " + diagnoses[mostLikelyIllness] + ". The treatment is :");
+        
     }
 
     public void list_Symptoms() {
